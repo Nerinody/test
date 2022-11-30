@@ -20,11 +20,12 @@
 
     /* Prototypes des fonctions */
 
-    Stack new_stack(void);
-    Bool is_empty_stack(Stack st);
-    Stack push_stack(Stack st, int x);
-    Stack clear_stack(Stack st);
-    void print_stack(Stack st);
-    Stack pop_stack(Stack st);
+    Stack	new_stack(void);
+    Bool	is_empty_stack(Stack st);
+    Stack	push_stack(Stack st, int x);
+    Stack	clear_stack(Stack st);
+    void	print_stack(Stack st);
+    Stack	pop_stack(Stack st);
+	Stack	swap_bottom(Stack st, int x);
 
 #endif

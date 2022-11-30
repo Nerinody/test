@@ -1,13 +1,13 @@
 #include "stack.h"
 
-Stack new_stack(void)
+Stack	new_stack(void)
 {
     return (NULL);
 }
 
 /*----------------------------------------------------------------*/
 
-Bool is_empty_stack(Stack st)
+Bool	is_empty_stack(Stack st)
 {
      if(st == NULL)
         return true;
@@ -16,7 +16,7 @@ Bool is_empty_stack(Stack st)
 
 /*----------------------------------------------------------------*/
 
-Stack push_stack(Stack st, int x)
+Stack	push_stack(Stack st, int x)
 {
     StackElement *element;
 
@@ -35,7 +35,7 @@ Stack push_stack(Stack st, int x)
 }
 /*----------------------------------------------------------------*/
 
-Stack clear_stack(Stack st)
+Stack	clear_stack(Stack st)
 {
  while(!is_empty_stack(st))
     st = pop_stack(st);
@@ -45,7 +45,7 @@ Stack clear_stack(Stack st)
 
 /*----------------------------------------------------------------*/
 
-void    print_stack(Stack st)
+void	print_stack(Stack st)
 {
     if(is_empty_stack(st))
     {       
@@ -63,7 +63,7 @@ void    print_stack(Stack st)
 
 /*----------------------------------------------------------------*/
 
-Stack pop_stack(Stack st)
+Stack	pop_stack(Stack st)
 {
     StackElement *element;
 
@@ -79,3 +79,29 @@ Stack pop_stack(Stack st)
 }
 
 /*----------------------------------------------------------------*/
+
+Stack	swap_bottom(Stack st, int x)
+{
+
+    StackElement *element;
+	StackElement *lastnode = st;
+	StackElement *firstnode = st;
+
+    element = malloc(sizeof(*element));
+
+    if(element == NULL)
+    {
+        fprintf(stderr, "Probleme allocation dynamique.\n");
+        exit(EXIT_FAILURE);
+    }
+    element->value = x;
+    element->next = NULL;
+
+	while(!is_empty_stack(st))
+	{
+		st = st->next;
+	}
+	st->next = element;
+
+    return firstnode;
+}
